@@ -1,0 +1,51 @@
+{
+  "portfolios": [
+    {
+      "id": 1,
+      "title": "EduFlow — Admin Kampus",
+      "category": "Administrasi",
+      "description": "Sistem informasi akademik terpadu dengan modul KRS otomatis, manajemen dosen, dan dashboard analitik mahasiswa.",
+      "image": "assets/img/portfolio/mockup.png",
+      "tech_stack": ["Next.js 14", "Prisma", "PostgreSQL"],
+      "demo_url": ""
+    },
+    {
+      "id": 2,
+      "title": "Vora — Premium Marketplace",
+      "category": "Marketplace",
+      "description": "Platform e-commerce multi-tenant dengan fitur live tracking, sistem lelang, dan UI yang sangat responsif.",
+      "image": "assets/img/portfolio/mockup.png",
+      "tech_stack": ["React", "Node.js", "MongoDB"],
+      "demo_url": ""
+    },
+    {
+      "id": 3,
+      "title": "Culina — F&B Digital Experience",
+      "category": "F&B",
+      "description": "Sistem manajemen restoran modern dengan pemesanan QR code, integrasi dapur real-time, dan loyalty program.",
+      "image": "assets/img/portfolio/mockup.png",
+      "tech_stack": ["Vue.js", "Firebase", "WebSockets"],
+      "demo_url": ""
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Bagas Arya",
+      "jurusan": "Manajemen",
+      "review": "Aplikasi administrasi yang dibikin Codein ngebantu banget operasional kampus kami. Tampilannya modern dan fitur-fiturnya sangat intuitif!"
+    },
+    {
+      "id": 2,
+      "name": "Dinda Safitri",
+      "jurusan": "Sistem Informasi",
+      "review": "Project tugas akhir sistem informasi saya dikerjakan dengan sangat profesional. Mentornya sabar dan hasilnya jauh melampaui ekspektasi."
+    },
+    {
+      "id": 3,
+      "name": "Fajar Ramadhan",
+      "jurusan": "Bisnis",
+      "review": "Codein bener-bener tempatnya para ahli digital. Website marketplace yang mereka bangun buat project startup saya dapet pujian dari dosen penguji!"
+    }
+  ]
+}

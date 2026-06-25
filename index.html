@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codein — Digital Craftsmanship</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        violet: { 500: '#8b5cf6' },
+                        pink: { 500: '#ec4899' },
+                        emerald: { 500: '#10b981' }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body class="bg-[#030303] text-neutral-200 selection:bg-violet-500/30 overflow-x-hidden">
+
+    <!-- Aurora Background -->
+    <div class="aurora-container">
+        <div class="aurora-orb orb-1"></div>
+        <div class="aurora-orb orb-2"></div>
+        <div class="aurora-orb orb-3"></div>
+    </div>
+
+    <!-- Digital Rain Container -->
+    <div id="code-rain" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Floating Navigation -->
+    <header id="header" class="nav-floating glass-v3">
+        <a href="#" class="brand-logo font-display font-extrabold text-2xl tracking-tighter text-white">
+            code<span class="text-violet-500">in</span>
+            <div class="logo-glow"></div>
+        </a>
+        
+        <nav class="hidden md:flex items-center gap-12 text-[10px] font-black text-neutral-400 uppercase tracking-[0.3em] ml-auto">
+            <a href="#layanan" class="nav-link hover:text-white transition-all relative">
+                Services
+                <span class="link-indicator"></span>
+            </a>
+            <a href="#portofolio" class="nav-link hover:text-white transition-all relative">
+                Showcase
+                <span class="link-indicator"></span>
+            </a>
+            <a href="#testimoni" class="nav-link hover:text-white transition-all relative">
+                Voices
+                <span class="link-indicator"></span>
+            </a>
+        </nav>
+
+        <button class="bg-white text-black px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-violet-500 hover:text-white transition-all btn-contact-direct md:ml-12 ml-auto shadow-[0_10px_20px_rgba(255,255,255,0.1)] hover:shadow-violet-500/40 hover:-translate-y-0.5">
+            Connect
+        </button>
+    </header>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section id="home" class="relative pt-40 pb-20 px-6 min-h-screen flex items-center">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+                <div class="text-left space-y-10 fade-up-3d" data-animate>
+                    <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-[10px] font-black uppercase tracking-[0.3em]">
+                        <span class="w-1.5 h-1.5 rounded-full bg-violet-500 animate-ping"></span>
+                        3D Digital Craftsmanship
+                    </div>
+                    <h1 class="font-display text-7xl md:text-9xl font-extrabold text-white leading-[0.85] tracking-tighter">
+                        Code <br>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-pink-400 to-emerald-400">Transcended.</span>
+                    </h1>
+                    <p class="max-w-md text-neutral-400 text-lg leading-relaxed font-medium">
+                        Kami membangun masa depan digital Anda dengan presisi kristal dan estetika yang tak tertandingi.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-8 pt-4">
+                        <a href="#layanan" class="bg-violet-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-violet-500 transition-all shadow-[0_15px_30px_rgba(139,92,246,0.3)] hover:-translate-y-1">
+                            Explore Now
+                        </a>
+                        <a href="#portofolio" class="group flex items-center gap-4 text-white text-[10px] font-black uppercase tracking-[0.2em]">
+                            View Works
+                            <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="canvas-container" class="relative hidden lg:block h-[600px] w-full fade-up-3d preserve-3d" data-animate>
+                    <!-- Enhanced Three.js Scene -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="layanan" class="py-32 px-6 max-w-7xl mx-auto">
+            <div class="text-center space-y-4 mb-24 fade-up-3d" data-animate>
+                <span class="text-violet-500 text-xs font-black uppercase tracking-[0.4em]">Expertise</span>
+                <h2 class="font-display text-5xl md:text-6xl font-bold text-white tracking-tight">Digital Excellence</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Card 1 -->
+                <div class="glass-v3 p-12 rounded-[50px] group fade-up-3d tilt-card" data-animate>
+                    <div class="w-16 h-16 rounded-3xl bg-violet-500/10 flex items-center justify-center text-violet-500 text-2xl mb-10 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Academic</h3>
+                    <p class="text-neutral-500 text-sm mb-12 leading-relaxed">Solusi cerdas untuk tantangan algoritma dan logika kompleks.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xl font-black text-white">Rp 15k+</span>
+                        <button class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-violet-500 hover:text-white transition-all btn-order" data-package="tugas">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 (Featured) -->
+                <div class="glass-v3 p-12 rounded-[50px] group fade-up-3d border-violet-500/30 relative overflow-hidden tilt-card shadow-violet-500/10 shadow-2xl" data-animate>
+                    <div class="absolute top-8 right-10 text-[9px] font-black uppercase text-violet-400 tracking-[0.2em] px-3 py-1 bg-violet-500/10 rounded-full">Popular</div>
+                    <div class="w-16 h-16 rounded-3xl bg-violet-500 flex items-center justify-center text-white text-2xl mb-10 shadow-lg shadow-violet-500/40"><i class="fas fa-bolt"></i></div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Experience</h3>
+                    <p class="text-neutral-500 text-sm mb-12 leading-relaxed">Landing page interaktif dengan performa & desain kelas dunia.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xl font-black text-white">Rp 15k+</span>
+                        <button class="px-8 py-3.5 rounded-2xl bg-violet-500 text-white text-[10px] font-black uppercase tracking-widest hover:bg-violet-400 transition-all btn-order" data-package="landing-page">Order</button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-v3 p-12 rounded-[50px] group fade-up-3d tilt-card" data-animate>
+                    <div class="w-16 h-16 rounded-3xl bg-violet-500/10 flex items-center justify-center text-violet-500 text-2xl mb-10 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Enterprise</h3>
+                    <p class="text-neutral-500 text-sm mb-12 leading-relaxed">Sistem skala penuh untuk mengotomatisasi visi bisnis Anda.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xl font-black text-white">Rp 75k+</span>
+                        <button class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-violet-500 hover:text-white transition-all btn-order" data-package="profesional">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portofolio" class="py-32">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-end justify-between mb-24 gap-12 fade-up-3d" data-animate>
+                    <div class="space-y-4">
+                        <span class="text-violet-500 text-xs font-black uppercase tracking-[0.4em]">Gallery</span>
+                        <h2 class="font-display text-5xl md:text-6xl font-bold text-white tracking-tight">The Showcase</h2>
+                    </div>
+                    <div class="flex bg-white/5 p-2 rounded-[24px] border border-white/5 no-scrollbar overflow-x-auto gap-2">
+                        <button class="whitespace-nowrap px-8 py-3.5 rounded-[18px] text-[10px] font-black uppercase tracking-widest transition-all filter-pill active bg-violet-500 text-white" data-filter="all">All Works</button>
+                        <button class="whitespace-nowrap px-8 py-3.5 rounded-[18px] text-[10px] font-black uppercase tracking-widest text-neutral-500 transition-all filter-pill" data-filter="Administrasi">Administrasi</button>
+                        <button class="whitespace-nowrap px-8 py-3.5 rounded-[18px] text-[10px] font-black uppercase tracking-widest text-neutral-500 transition-all filter-pill" data-filter="Marketplace">Marketplace</button>
+                        <button class="whitespace-nowrap px-8 py-3.5 rounded-[18px] text-[10px] font-black uppercase tracking-widest text-neutral-500 transition-all filter-pill" data-filter="F&B">F&B</button>
+                    </div>
+                </div>
+                <div id="portfolio-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"></div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimoni" class="py-32 px-6 max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="space-y-10 fade-up-3d" data-animate>
+                    <span class="text-violet-500 text-xs font-black uppercase tracking-[0.4em]">Trust</span>
+                    <h2 class="font-display text-5xl md:text-7xl font-bold text-white leading-tight">Masa Depan Berawal <br> Di Sini.</h2>
+                    <p class="text-neutral-500 text-lg">Apa kata mereka yang telah bertransformasi bersama Codein Digital Studio.</p>
+                </div>
+                <div id="testimonials-container" class="space-y-8"></div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section id="cta" class="py-40 px-6 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="glass-v3 rounded-[60px] p-20 md:p-32 text-center relative overflow-hidden group border-violet-500/20">
+                    <div class="absolute inset-0 bg-gradient-to-br from-violet-600/20 via-transparent to-emerald-500/10 pointer-events-none"></div>
+                    
+                    <div class="relative z-10 space-y-12">
+                        <div class="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-[0.4em] text-violet-400">
+                            Ready to Transcend?
+                        </div>
+                        <h2 class="font-display text-6xl md:text-9xl font-extrabold text-white tracking-tighter leading-[0.85]">
+                            Let's Build <br> 
+                            <span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-pink-400 to-emerald-400">Your Vision.</span>
+                        </h2>
+                        <p class="max-w-2xl mx-auto text-neutral-400 text-lg md:text-xl font-medium leading-relaxed">
+                            Bergabunglah dengan ratusan klien yang telah memodernisasi presence digital mereka bersama Codein Studio.
+                        </p>
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-8 pt-8">
+                            <button class="bg-white text-black px-16 py-8 rounded-[30px] text-xs font-black uppercase tracking-[0.3em] hover:bg-violet-500 hover:text-white transition-all shadow-2xl btn-contact-direct hover:-translate-y-1 active:scale-95 group">
+                                Start Your Project
+                                <i class="fas fa-arrow-right ml-4 group-hover:translate-x-2 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-20 -right-20 w-80 h-80 bg-violet-600/30 blur-[100px] rounded-full animate-pulse"></div>
+                    <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-emerald-600/20 blur-[100px] rounded-full animate-pulse" style="animation-delay: 2s"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pt-32 pb-12 border-t border-white/5 bg-[#030303] px-6 relative overflow-hidden">
+        <!-- Footer Blur -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-violet-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-20 mb-24">
+                <div class="col-span-1 md:col-span-2 space-y-8">
+                    <div class="brand font-display font-extrabold text-4xl text-white">code<span class="text-violet-500">in</span></div>
+                    <p class="text-neutral-500 text-lg max-w-sm leading-relaxed">
+                        Kami adalah studio kreatif yang berfokus pada pengembangan produk digital premium dengan sentuhan magis.
+                    </p>
+                    <div class="flex gap-6">
+                        <a href="#" class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-violet-500 transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-violet-500 transition-all"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-violet-500 transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <h4 class="text-white font-bold text-lg uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-4 text-neutral-500 text-sm font-medium">
+                        <li><a href="#home" class="hover:text-violet-400 transition-colors">Home</a></li>
+                        <li><a href="#layanan" class="hover:text-violet-400 transition-colors">Services</a></li>
+                        <li><a href="#portofolio" class="hover:text-violet-400 transition-colors">Showcase</a></li>
+                        <li><a href="#testimoni" class="hover:text-violet-400 transition-colors">Voices</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-8">
+                    <h4 class="text-white font-bold text-lg uppercase tracking-wider">Contact</h4>
+                    <div class="space-y-4 text-neutral-500 text-sm font-medium">
+                        <p class="flex items-center gap-3"><i class="fab fa-whatsapp text-violet-500"></i> +62 895 3709 84939</p>
+                        <p class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-violet-500"></i> Digital Park, Indonesia</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+                <p class="text-neutral-600 text-[10px] font-black uppercase tracking-widest">© 2026 Crafted with Passion — Codein Studio</p>
+                <div class="flex gap-10 text-[10px] font-black uppercase tracking-widest text-neutral-400">
+                    <a href="#" class="hover:text-violet-500 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-violet-500 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
